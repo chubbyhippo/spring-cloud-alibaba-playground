@@ -1,0 +1,82 @@
+2023-08-07 15:26:31,074 INFO SPI service [com.alipay.sofa.jraft.JRaftServiceFactory - com.alipay.sofa.jraft.core.DefaultJRaftServiceFactory] loading.
+
+2023-08-07 15:26:31,167 INFO SPI service [com.alipay.sofa.jraft.rpc.RaftRpcFactory - com.alipay.sofa.jraft.rpc.impl.GrpcRaftRpcFactory] loading.
+
+2023-08-07 15:26:31,339 INFO SPI service [com.alipay.sofa.jraft.util.JRaftSignalHandler - com.alipay.sofa.jraft.NodeDescribeSignalHandler] loading.
+
+2023-08-07 15:26:31,341 INFO SPI service [com.alipay.sofa.jraft.util.JRaftSignalHandler - com.alipay.sofa.jraft.NodeMetricsSignalHandler] loading.
+
+2023-08-07 15:26:31,343 INFO SPI service [com.alipay.sofa.jraft.util.JRaftSignalHandler - com.alipay.sofa.jraft.ThreadPoolMetricsSignalHandler] loading.
+
+2023-08-07 15:26:31,346 INFO SPI service [com.alipay.sofa.jraft.util.timer.RaftTimerFactory - com.alipay.sofa.jraft.util.timer.DefaultRaftTimerFactory] loading.
+
+2023-08-07 15:26:31,352 INFO The number of active nodes increment to 1.
+
+2023-08-07 15:26:31,602 INFO Starts FSMCaller successfully.
+
+2023-08-07 15:26:31,612 WARN No data for snapshot reader /home/nacos/data/protocol/raft/naming_persistent_service_v2/snapshot.
+
+2023-08-07 15:26:31,620 INFO Node <naming_persistent_service_v2/0866c8d19f8b:7848> init, term=0, lastLogId=LogId [index=0, term=0], conf=0866c8d19f8b:7848, oldConf=.
+
+2023-08-07 15:26:31,623 INFO Node <naming_persistent_service_v2/0866c8d19f8b:7848> start vote and grant vote self, term=0.
+
+2023-08-07 15:26:31,650 INFO Save raft meta, path=/home/nacos/data/protocol/raft/naming_persistent_service_v2/meta-data, term=1, votedFor=0866c8d19f8b:7848, cost time=20 ms
+
+2023-08-07 15:26:31,652 INFO Node <naming_persistent_service_v2/0866c8d19f8b:7848> become leader of group, term=1, conf=0866c8d19f8b:7848, oldConf=.
+
+2023-08-07 15:26:31,655 INFO -Djraft.recyclers.maxCapacityPerThread: 4096.
+
+2023-08-07 15:26:31,658 WARN RPC server is not started in RaftGroupService.
+
+2023-08-07 15:26:31,659 INFO Start the RaftGroupService successfully.
+
+2023-08-07 15:26:31,675 INFO onLeaderStart: term=1.
+
+2023-08-07 15:26:31,689 INFO The number of active nodes increment to 2.
+
+2023-08-07 15:26:31,748 INFO Starts FSMCaller successfully.
+
+2023-08-07 15:26:31,749 WARN No data for snapshot reader /home/nacos/data/protocol/raft/naming_instance_metadata/snapshot.
+
+2023-08-07 15:26:31,754 INFO Node <naming_instance_metadata/0866c8d19f8b:7848> init, term=0, lastLogId=LogId [index=0, term=0], conf=0866c8d19f8b:7848, oldConf=.
+
+2023-08-07 15:26:31,756 INFO Node <naming_instance_metadata/0866c8d19f8b:7848> start vote and grant vote self, term=0.
+
+2023-08-07 15:26:31,764 INFO Save raft meta, path=/home/nacos/data/protocol/raft/naming_instance_metadata/meta-data, term=1, votedFor=0866c8d19f8b:7848, cost time=7 ms
+
+2023-08-07 15:26:31,765 INFO Node <naming_instance_metadata/0866c8d19f8b:7848> become leader of group, term=1, conf=0866c8d19f8b:7848, oldConf=.
+
+2023-08-07 15:26:31,767 WARN RPC server is not started in RaftGroupService.
+
+2023-08-07 15:26:31,768 INFO Start the RaftGroupService successfully.
+
+2023-08-07 15:26:31,783 INFO The number of active nodes increment to 3.
+
+2023-08-07 15:26:31,785 INFO onLeaderStart: term=1.
+
+2023-08-07 15:26:31,795 INFO Creating new channel to: 0866c8d19f8b:7848.
+
+2023-08-07 15:26:31,979 INFO Starts FSMCaller successfully.
+
+2023-08-07 15:26:31,980 WARN No data for snapshot reader /home/nacos/data/protocol/raft/naming_service_metadata/snapshot.
+
+2023-08-07 15:26:31,982 INFO Node <naming_service_metadata/0866c8d19f8b:7848> init, term=0, lastLogId=LogId [index=0, term=0], conf=0866c8d19f8b:7848, oldConf=.
+
+2023-08-07 15:26:31,983 INFO Node <naming_service_metadata/0866c8d19f8b:7848> start vote and grant vote self, term=0.
+
+2023-08-07 15:26:31,983 INFO The channel 0866c8d19f8b:7848 is in state: CONNECTING.
+
+2023-08-07 15:26:31,988 INFO Save raft meta, path=/home/nacos/data/protocol/raft/naming_service_metadata/meta-data, term=1, votedFor=0866c8d19f8b:7848, cost time=5 ms
+
+2023-08-07 15:26:31,988 INFO Node <naming_service_metadata/0866c8d19f8b:7848> become leader of group, term=1, conf=0866c8d19f8b:7848, oldConf=.
+
+2023-08-07 15:26:31,990 WARN RPC server is not started in RaftGroupService.
+
+2023-08-07 15:26:31,990 INFO Start the RaftGroupService successfully.
+
+2023-08-07 15:26:31,998 INFO onLeaderStart: term=1.
+
+2023-08-07 15:26:32,314 INFO The channel 0866c8d19f8b:7848 is in state: READY.
+
+2023-08-07 15:26:32,315 INFO The channel 0866c8d19f8b:7848 has successfully established.
+
