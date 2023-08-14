@@ -15,7 +15,7 @@ public class NacosController {
     private final NacosConfigResource nacosConfigResource;
 
     @GetMapping
-    Map<String, String> getConfigInfo() {
+    Map<String, String> getConfig(){
         var result = new HashMap<String, String>();
         result.put("serverAddr", nacosConfigResource.getServerAddr());
         result.put("prefix", nacosConfigResource.getPrefix());
