@@ -11,16 +11,16 @@ import java.util.Map;
 @RestController
 @RequestMapping("/nacos/bean")
 @RequiredArgsConstructor
-public class BeanAutoRefreshConfigExample {
-    private final NacosConfigInfo nacosConfigInfo;
+public class NacosController {
+    private final NacosConfigResource nacosConfigResource;
 
     @GetMapping
     Map<String, String> getConfigInfo() {
         var result = new HashMap<String, String>();
-        result.put("serverAddr", nacosConfigInfo.getServerAddr());
-        result.put("prefix", nacosConfigInfo.getPrefix());
-        result.put("group", nacosConfigInfo.getGroup());
-        result.put("namespace", nacosConfigInfo.getNamespace());
+        result.put("serverAddr", nacosConfigResource.getServerAddr());
+        result.put("prefix", nacosConfigResource.getPrefix());
+        result.put("group", nacosConfigResource.getGroup());
+        result.put("namespace", nacosConfigResource.getNamespace());
 
         return result;
     }
