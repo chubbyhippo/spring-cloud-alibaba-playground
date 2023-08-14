@@ -1,6 +1,6 @@
 package com.example.demo.interfaces.rest;
 
-import com.example.demo.domain.NacosConfigResource;
+import com.example.demo.domain.NacosConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +13,15 @@ import java.util.Map;
 @RequestMapping("/nacos/bean")
 @RequiredArgsConstructor
 public class NacosController {
-    private final NacosConfigResource nacosConfigResource;
+    private final NacosConfig nacosConfig;
 
     @GetMapping
     Map<String, String> getConfig(){
         var result = new HashMap<String, String>();
-        result.put("serverAddr", nacosConfigResource.getServerAddr());
-        result.put("prefix", nacosConfigResource.getPrefix());
-        result.put("group", nacosConfigResource.getGroup());
-        result.put("namespace", nacosConfigResource.getNamespace());
+        result.put("serverAddr", nacosConfig.getServerAddr());
+        result.put("prefix", nacosConfig.getPrefix());
+        result.put("group", nacosConfig.getGroup());
+        result.put("namespace", nacosConfig.getNamespace());
 
         return result;
     }
