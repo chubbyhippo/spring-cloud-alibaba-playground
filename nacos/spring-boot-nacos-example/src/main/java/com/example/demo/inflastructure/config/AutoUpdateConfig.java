@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.inflastructure.config;
 
 import com.alibaba.cloud.nacos.NacosConfigManager;
 import com.alibaba.nacos.api.config.listener.Listener;
