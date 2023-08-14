@@ -8,7 +8,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @ConfigurationProperties(prefix = "spring.cloud.nacos.config")
 @RefreshScope
 @Data
-public class NacosConfigInfo {
+public class NacosConfigResource {
 
     String serverAddr;
     String prefix;
