@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/nacos/bean")
+@RequestMapping("/nacos")
 @RequiredArgsConstructor
 public class NacosController {
     private final NacosConfig nacosConfig;
     private final NacosConfigDtoConverter nacosConfigDtoConverter;
 
-    @GetMapping
+    @GetMapping("/bean")
     NacosConfigResource getConfig() {
         return nacosConfigDtoConverter.toNacosConfigResource(NacosConfig.builder()
                 .serverAddr(nacosConfig.getServerAddr())
