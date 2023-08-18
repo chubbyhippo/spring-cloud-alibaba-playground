@@ -4,7 +4,6 @@ package com.example.demo;
 import org.junit.ClassRule;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.testcontainers.containers.DockerComposeContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -23,9 +22,10 @@ public abstract class AbstractTestContainersSetup {
                             Wait.forListeningPort()
                                     .withStartupTimeout(Duration.ofMinutes(10)))
                     .withExposedService("nacos",
-                                                9848,
-                                        Wait.forListeningPort()
-                                    .withStartupTimeout(Duration.ofMinutes(10)));
+                            9848,
+                            Wait.forListeningPort()
+                                    .withStartupTimeout(Duration.ofMinutes(10)))
+                    .withPull(true);
 
     @BeforeAll
     static void setUp() {
