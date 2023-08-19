@@ -38,4 +38,17 @@ public class NacosController {
         var configService = nacosConfigManager.getConfigService();
         return configService.getConfig(dataId, group, 2000);
     }
+
+    @PostMapping("/publishConfig")
+    public boolean publishConfig(@RequestParam("dataId") String dataId,
+                                 @RequestParam(value = "group", required = false) String group,
+                                 @RequestParam("content") String content) throws NacosException {
+        if (StringUtils.isEmpty(group)) {
+            group = DEFAULT_GROUP;
+        }
+        var configService = nacosConfigManager.getConfigService();
+        return configService.publishConfig(dataId, group, content);
+    }
 }
+
+

@@ -63,4 +63,27 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
         assertThat(responseBody).isEqualTo(expected);
     }
 
+    @Test
+    void shouldPublishConfig() {
+
+        var responseBody = client.post()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/nacos/getConfig")
+                        .queryParam("dataId", "nacos-config-example-2.properties")
+                        .queryParam("group", "NEW_GROUP")
+                        .queryParam("content", """
+                                   spring.cloud.nacos.config.serverAddr=127.0.0.1:8848
+                                   spring.cloud.nacos.config.prefix=PREFIX
+                                   spring.cloud.nacos.config.group=GROUP
+                                   spring.cloud.nacos.config.namespace=NAMESPACE
+                                """.trim())
+                        .build())
+                .exchange()
+                .expectBody(Boolean.class)
+                .returnResult()
+                .getResponseBody();
+
+        assertThat(responseBody).isTrue();
+    }
+
 }
