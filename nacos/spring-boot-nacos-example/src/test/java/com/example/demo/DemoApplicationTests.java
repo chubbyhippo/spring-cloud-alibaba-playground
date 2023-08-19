@@ -90,4 +90,22 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
         assertThat(responseBody).isTrue();
     }
 
+    @Test
+    @Order(3)
+    void shouldRemoveConfig() {
+
+        var responseBody = client.post()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/nacos/removeConfig")
+                        .queryParam("dataId", "nacos-config-example-2.properties")
+                        .queryParam("group", "NEW_GROUP")
+                        .build())
+                .exchange()
+                .expectBody(Boolean.class)
+                .returnResult()
+                .getResponseBody();
+
+        assertThat(responseBody).isTrue();
+    }
+
 }
