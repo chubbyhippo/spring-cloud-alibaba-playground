@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatNoException;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class DemoApplicationTests extends AbstractTestContainersSetup{
+class DemoApplicationTests extends AbstractTestContainersSetup {
     @Autowired
     private WebTestClient client;
 
@@ -38,6 +38,29 @@ class DemoApplicationTests extends AbstractTestContainersSetup{
 
         assertThat(nacosConfigResource).isEqualTo(expected);
 
+    }
+
+    @Test
+    void shouldGetNacosConfig() {
+        var expected = """
+                spring.cloud.nacos.config.serverAddr=127.0.0.1:8848
+                spring.cloud.nacos.config.prefix=PREFIX
+                spring.cloud.nacos.config.group=GROUP
+                spring.cloud.nacos.config.namespace=NAMESPACE
+                """.trim();
+
+        var responseBody = client.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/nacos/config")
+                        .queryParam("dataId", "nacos-config-example.properties")
+                        .queryParam("group", "DEFAULT_GROUP")
+                        .build())
+                .exchange()
+                .expectBody(String.class)
+                .returnResult()
+                .getResponseBody();
+
+        assertThat(responseBody).isEqualTo(expected);
     }
 
 }
