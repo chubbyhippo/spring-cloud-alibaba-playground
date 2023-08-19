@@ -2,7 +2,6 @@ package com.example.demo.interfaces.rest;
 
 import com.alibaba.cloud.commons.lang.StringUtils;
 import com.alibaba.cloud.nacos.NacosConfigManager;
-import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.example.demo.domain.NacosConfig;
 import com.example.demo.interfaces.rest.dto.NacosConfigResource;
@@ -39,7 +38,7 @@ public class NacosController {
         if (StringUtils.isEmpty(group)) {
             group = DEFAULT_GROUP;
         }
-        ConfigService configService = nacosConfigManager.getConfigService();
+        var configService = nacosConfigManager.getConfigService();
         return configService.getConfig(dataId, group, 2000);
     }
 }
