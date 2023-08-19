@@ -21,7 +21,7 @@ class DemoApplicationTests extends AbstractTestContainersSetup{
     }
 
     @Test
-    void shouldGetNacosConfig() {
+    void shouldGetNacosConfigBean() {
         var expected = NacosConfigResource.builder()
                 .serverAddr("127.0.0.1:8848")
                 .prefix("PREFIX")
