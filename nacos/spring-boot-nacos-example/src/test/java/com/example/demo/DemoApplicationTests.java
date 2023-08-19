@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.interfaces.rest.dto.NacosConfigResource;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +22,7 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
     }
 
     @Test
+    @Order(0)
     void shouldGetNacosConfigBean() {
         var expected = NacosConfigResource.builder()
                 .serverAddr("127.0.0.1:8848")
@@ -41,6 +43,7 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
     }
 
     @Test
+    @Order(1)
     void shouldGetNacosConfig() {
         var expected = """
                 spring.cloud.nacos.config.serverAddr=127.0.0.1:8848
@@ -64,11 +67,12 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
     }
 
     @Test
+    @Order(2)
     void shouldPublishConfig() {
 
         var responseBody = client.post()
                 .uri(uriBuilder -> uriBuilder
-                        .path("/nacos/getConfig")
+                        .path("/nacos/publishConfig")
                         .queryParam("dataId", "nacos-config-example-2.properties")
                         .queryParam("group", "NEW_GROUP")
                         .queryParam("content", """
