@@ -6,10 +6,7 @@ import com.alibaba.nacos.api.exception.NacosException;
 import com.example.demo.domain.NacosConfig;
 import com.example.demo.interfaces.rest.dto.NacosConfigResource;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static com.alibaba.nacos.api.common.Constants.DEFAULT_GROUP;
 
@@ -31,7 +28,7 @@ public class NacosController {
                 .build());
     }
 
-    @GetMapping("/config")
+    @GetMapping("/getConfig")
     public String getConfig(@RequestParam("dataId") String dataId,
                             @RequestParam(value = "group", required = false) String group)
             throws NacosException {

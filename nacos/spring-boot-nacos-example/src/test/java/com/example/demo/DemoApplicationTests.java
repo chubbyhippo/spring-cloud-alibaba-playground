@@ -51,7 +51,7 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
 
         var responseBody = client.get()
                 .uri(uriBuilder -> uriBuilder
-                        .path("/nacos/config")
+                        .path("/nacos/getConfig")
                         .queryParam("dataId", "nacos-config-example.properties")
                         .queryParam("group", "DEFAULT_GROUP")
                         .build())
