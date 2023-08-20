@@ -50,7 +50,7 @@ public class NacosController {
         return configService.publishConfig(dataId, group, content);
     }
 
-    @RequestMapping("/removeConfig")
+    @DeleteMapping("/removeConfig")
     public boolean removeConfig(@RequestParam("dataId") String dataId,
                                 @RequestParam(value = "group", required = false) String group)
             throws NacosException {

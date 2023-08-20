@@ -94,7 +94,7 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
     @Order(3)
     void shouldRemoveConfig() {
 
-        var responseBody = client.post()
+        var responseBody = client.delete()
                 .uri(uriBuilder -> uriBuilder
                         .path("/nacos/removeConfig")
                         .queryParam("dataId", "nacos-config-example-2.properties")
