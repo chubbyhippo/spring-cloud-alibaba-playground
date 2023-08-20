@@ -1,8 +1,10 @@
 package com.example.demo;
 
 import com.example.demo.interfaces.rest.dto.NacosConfigResource;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -11,18 +13,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatNoException;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class DemoApplicationTests extends AbstractTestContainersSetup {
     @Autowired
     private WebTestClient client;
 
     @Test
+    @Order(1)
     void shouldRun() {
         assertThatNoException().isThrownBy(() -> DemoApplication.main(new String[]{}));
 
     }
 
     @Test
-    @Order(0)
+    @Order(2)
     void shouldGetNacosConfigBean() {
         var expected = NacosConfigResource.builder()
                 .serverAddr("127.0.0.1:8848")
@@ -43,7 +47,7 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
     }
 
     @Test
-    @Order(1)
+    @Order(3)
     void shouldGetNacosConfig() {
         var expected = """
                 spring.cloud.nacos.config.serverAddr=127.0.0.1:8848
@@ -67,7 +71,7 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
     }
 
     @Test
-    @Order(2)
+    @Order(4)
     void shouldPublishConfig() {
 
         var responseBody = client.post()
@@ -91,7 +95,7 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
     }
 
     @Test
-    @Order(3)
+    @Order(5)
     void shouldRemoveConfig() {
 
         var responseBody = client.delete()
