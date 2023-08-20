@@ -112,4 +112,22 @@ class DemoApplicationTests extends AbstractTestContainersSetup {
         assertThat(responseBody).isTrue();
     }
 
+    @Test
+    @Order(6)
+    void shouldAddListenerConfig() {
+
+        var responseBody = client.post()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/nacos/addListener")
+                        .queryParam("dataId", "nacos-config-example-2.properties")
+                        .queryParam("group", "NEW_GROUP")
+                        .build())
+                .exchange()
+                .expectBody(String.class)
+                .returnResult()
+                .getResponseBody();
+
+        assertThat(responseBody).isEqualTo("Add Lister successfully!");
+    }
+
 }
